@@ -4,6 +4,9 @@ import Container from '@mui/material/Container';
 import SignupForm from './Signup';
 import LoginForm from './Login';
 import Remember from './Remember';
+import authProvider from './authProvider';
+import SessionAuth from './SessionAuth';
+import Reset from './Reset';
 
 const Component = ({ login, signup, checkAuth, notify }) => {
   const [email, setEmail] = useState('');
@@ -57,3 +60,8 @@ const Component = ({ login, signup, checkAuth, notify }) => {
 }
 
 export default Component;
+export {
+  SessionAuth,
+  authProvider,
+  Reset,
+}
