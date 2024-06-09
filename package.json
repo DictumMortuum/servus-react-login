@@ -1,6 +1,6 @@
 {
   "name": "servus-react-login",
-  "version": "1.0.11",
+  "version": "1.0.15",
   "main": "dist/index.js",
   "scripts": {
     "build": "babel src -d dist",

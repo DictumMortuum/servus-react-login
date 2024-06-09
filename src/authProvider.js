@@ -86,15 +86,21 @@ const checkError = (error) => {
 }
 
 const getIdentity = () => {
-  const raw = localStorage.getItem('auth')
-  const auth = JSON.parse(raw)
+  const raw = localStorage.getItem('auth');
+  const auth = JSON.parse(raw);
 
   if (auth === null) {
-    return Promise.reject()
+    return Promise.reject();
   }
 
-  const { status, user: { id, email }} = auth;
-  return status === "OK" ? Promise.resolve({ id, user: email }) : Promise.reject()
+  const { status } = auth;
+
+  if (status !== "OK") {
+    return Promise.reject();
+  }
+
+  const { user: { id, email }} = auth;
+  return Promise.resolve({ id, user: email });
 }
 
 const resetPassword = ({ email }) => {

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import {
   Link,
   Stack,
@@ -25,20 +25,17 @@ const LoginForm = props => {
     notify
   } = props;
 
-  useEffect(() => {
-    checkAuth({}, false).then(() => {
-      // navigate('/')
-    })
-    .catch(err => {
-      notify(err)
-    });
-  }, [checkAuth, navigate]);
-
   const handleSubmit = e => {
     e.preventDefault();
     login({ email, password }).then(() => {
-      navigate('/')
+      checkAuth({}, false).then(() => {
+        navigate('/')
+      }).catch(err => {
+        console.log(err);
+        notify('Invalid email or password')
+      })
     }).catch(err => {
+      console.log(err);
       notify('Invalid email or password')
     })
   };
