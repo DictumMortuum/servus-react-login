@@ -149,6 +149,7 @@ const resetPasswordToken = ({ password, token }) => {
 
 const authProvider = {
   login,
+  signup,
   logout,
   checkAuth,
   checkError,

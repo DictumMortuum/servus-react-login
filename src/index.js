@@ -27,7 +27,7 @@ const Component = ({ login, signup, checkAuth, notify }) => {
             showPassword={showPassword}
             setShowPassword={setShowPassword}
             setShowSignUp={setShowSignUp}
-            singup={signup}
+            signup={signup}
             notify={notify}
           />
         }
