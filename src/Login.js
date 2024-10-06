@@ -22,22 +22,24 @@ const LoginForm = props => {
     setShowRemember,
     login,
     checkAuth,
-    notify
+    notify,
+    postLogin,
   } = props;
 
   const handleSubmit = e => {
     e.preventDefault();
     login({ email, password }).then(() => {
       checkAuth({}, false).then(() => {
-        navigate('/')
+        postLogin();
+        navigate('/');
       }).catch(err => {
         console.log(err);
         notify('Invalid email or password')
-      })
+      });
     }).catch(err => {
       console.log(err);
       notify('Invalid email or password')
-    })
+    });
   };
 
   const handleSignUp = () => {

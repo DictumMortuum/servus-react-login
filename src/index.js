@@ -8,7 +8,7 @@ import authProvider from './authProvider';
 import SessionAuth from './SessionAuth';
 import Reset from './Reset';
 
-const Component = ({ login, signup, checkAuth, notify }) => {
+const Component = ({ login, signup, checkAuth, notify, postLogin }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -44,6 +44,7 @@ const Component = ({ login, signup, checkAuth, notify }) => {
             login={login}
             notify={notify}
             checkAuth={checkAuth}
+            postLogin={postLogin}
           />
         }
         {!showSignUp && showRemember &&

@@ -18,6 +18,9 @@ const login = ({ email, password }) => {
     if (response.status < 200 || response.status >= 300) {
       throw new Error(response.statusText);
     }
+
+    localStorage.setItem('st', response.headers.get("st-access-token"));
+    console.log(response.headers);
     return response.json();
   })
   .then(auth => {
